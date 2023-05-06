@@ -1,0 +1,11 @@
+body{
+    background-image: url('./pexels-matheus-bertelli-14383838.jpg');
+    background-size: cover;
+}
+
+.article-list{
+    background-image: url('./pexels-matheus-bertelli-14383838.jpg');
+    background-size: cover;
+    margin-top: 5%;
+    color: aliceblue;
+}

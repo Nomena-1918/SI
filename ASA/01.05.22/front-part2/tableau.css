@@ -1,0 +1,37 @@
+body{
+    font-family: sans-serif;
+}
+
+.contain-table{
+    position: relative;
+    width: 40%;
+    margin-left:32% ;
+    margin-top: 5%;
+}
+
+table{
+    border-collapse: collapse;
+    border-radius: 1%;
+  }
+  
+  th, td{
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+  .component{
+    border-bottom: 1px solid ;
+  }
+
+  .titre{
+    font-size: large;
+    color: aliceblue;
+    background-color: rgba(64, 131, 64, 0.74);;
+    border: 0.5xp;
+    border-color: rgba(132, 163, 141, 0.932);
+    border-right: 1px solid;
+  }
+
+  .title{
+    margin-top: 10%;
+  }

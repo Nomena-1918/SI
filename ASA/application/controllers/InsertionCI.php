@@ -35,18 +35,69 @@
             }
         }
 
+        // journal
         public function updatejrn(){
             $id = $_POST['id'];
             $code = $_POST['code'];
             $intitule = $_POST['intitule'];
             $this->all_model->upadate_journal($id, $code, $intitule);
         }
-
         public function insertionjrn(){
             $code = $_POST['code'];
             $intitule = $_POST['intitule'];
             $this->all_model->insert_journal($code, $intitule);
         }
+        public function deletejrn(){
+            $id = $_POST['id'];
+            $code = $_POST['code'];
+            $intitule = $_POST['intitule'];
+            $this->all_model->delete_journaux($id);
+        }
+
+        // plan tier
+        public function update_list_tier(){
+            $id = $_POST['id'];
+            $code = $_POST['code'];
+            $numero = $_POST['num'];
+            $intitule = $_POST['intitule'];
+            $this->all_model->upadate_tier($id ,$code, $num, $intitule);
+        }
+        public function insertiontier(){
+            $code = $_POST['code'];
+            $intitule = $_POST['intitule'];
+            $this->all_model->insert_tier($code, $intitule);
+        }
+        public function deletetier(){
+            $id = $_POST['id'];
+            $code = $_POST['code'];
+            $intitule = $_POST['intitule'];
+            $this->all_model->delete_tier($id);
+        }
+
+        public function insert_ecriture(){
+            $id = $_POST['id'];
+            $date = $_POST['date'];
+            $lib_piece = $_POST['libpiece'];
+            $n_piece = $_POST['codepiece'];
+            $id_co_general = $_POST['compte_gen'];
+            $id_co_tier = $_POST['compte_tier'];
+            $libelle = $_POST['libelle'];
+            $id_devise = $_POST['devise'];
+            $debit = $_POST['debit'];
+            $credit = $_POST['credit'];
+            $typeval = 0;
+            // Construct the ident of piece 
+            $n_piece = $lib_piece."/".$n_piece;
+            if( (strlen($n_piece) <= 13) && (strlen($libelle) <=35) ){
+                // if()
+                // $this->all_model->insert_ecriture_jrn($id_code, $date_ecr, $n_piece, $id_co_general, $id_co_tier, $libelle, $id_devise, $debit, $credit,$typeval);
+            }
+            else{
+                return false;
+            }
+        }
+
+        // public function 
         
     }
 ?>

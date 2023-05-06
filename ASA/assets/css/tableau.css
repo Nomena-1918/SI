@@ -10,6 +10,9 @@
 body{
     font-family: sans-serif;
 }
+body a{
+  cursor: pointer;
+}
 
 .contain-table{
     display: flex;
@@ -34,6 +37,10 @@ table{
   .component{
     width: 30%;
     border-bottom: 1px solid ;
+  }
+  /* EXCEPTIONNEL */
+  .component #idplancompte{
+    display: none;
   }
 
   /* personalisée fonctionalité */
@@ -74,18 +81,19 @@ table{
   } */
 
   .popup_container{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: center;
+    /* height: 100vh; */
+    position: relative;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
   }
   .popup{
-    /* display: none; */
-    position: absolute;
+    position: fixed;
     top: -100%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 450px;
+    height: auto;
     padding: 20px;
     background: #fff;
     border-radius: 10px;
@@ -100,7 +108,7 @@ table{
     margin: 15px 0px;
   }
   .popup .close-btn{
-    position: absolute;
+    position: relative;
     top: -5px;
     right: 10px;
     width: 20px;
@@ -121,7 +129,7 @@ table{
     transition: filter 0ms ease-in-out;
   }
   body.active-popup .popup{
-    top: 70%;
+    top: 60%;
     opacity: 1;
     margin-top: 0px;
     transition: top 0ms ease-in-out 0ms,
@@ -135,8 +143,8 @@ table{
     width: 30%;
     font-size: large;
     color: aliceblue;
-    background-color: rgba(64, 131, 64, 0.74);;
-    border: 0.5xp;
+    background-color: rgba(64, 131, 64, 0.74);
+    border: 0.5px;
     border-color: rgba(132, 163, 141, 0.932);
     border-right: 1px solid;
   }

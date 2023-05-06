@@ -31,18 +31,18 @@ drop table compte_collectif;
 drop table code_compte_collectif;
 
 -- achat
-insert into ecriture_journaux(id_code_journaux,dat_ecriture,numero_piece,idcompte_general,idcompte_tier,libelle,iddevise,devise,debit,credit,typeval)values
-(1,'2023-03-01','CH/001',12,null,'Achat ps5',1,null,5000,0,0),
-(1,'2023-03-01','CH/001',15,null,'Achat ps5',1,null,500,0,0),
-(1,'2023-03-01','CH/001',1,5,'Achat ps5',1,null,5500,0,0);
-insert into ecriture_journaux(id_code_journaux,dat_ecriture,numero_piece,idcompte_general,idcompte_tier,libelle,iddevise,devise,debit,credit,typeval)values
-(4,'2023-04-01','CH/001',1,5,'Reglement facture par cheque BOA aux fournisseur',1,null,5500,0,0),
-(4,'2023-04-01','CH/001',17,null,'Reglement facture par cheque BOA aux fournisseur',1,null,0,5500,0);
+insert into ecriture_journaux(id_code_journaux,dat_ecriture,numero_piece,idcompte_general,idcompte_tier,libelle,iddevise,debit,credit,typeval)values
+(1,'2023-03-01','CH/001',12,null,'Achat ps5',1,5000,0,0),
+(1,'2023-03-01','CH/001',15,null,'Achat ps5',1,500,0,0),
+(1,'2023-03-01','CH/001',1,5,'Achat ps5',1,5500,0,0);
+insert into ecriture_journaux(id_code_journaux,dat_ecriture,numero_piece,idcompte_general,idcompte_tier,libelle,iddevise,debit,credit,typeval)values
+(4,'2023-04-01','CH/001',1,5,'Reglement facture par cheque BOA aux fournisseur',1,5500,0,0),
+(4,'2023-04-01','CH/001',17,null,'Reglement facture par cheque BOA aux fournisseur',1,0,5500,0);
 -- vente
-insert into ecriture_journaux(id_code_journaux,dat_ecriture,numero_piece,idcompte_general,idcompte_tier,libelle,iddevise,devise,debit,credit,typeval)values
-(1,'2023-03-06','FC/010',14,null,'Vente voiture',1,null,0,3500,0),
-(1,'2023-03-06','FC/010',16,null,'Vente voiture',1,null,0,250,0),
-(1,'2023-03-06','FC/010',8,7,'Vente voiture',1,null,0,3750,0);
+insert into ecriture_journaux(id_code_journaux,dat_ecriture,numero_piece,idcompte_general,idcompte_tier,libelle,iddevise,debit,credit,typeval)values
+(1,'2023-03-06','FC/010',14,null,'Vente voiture',1,0,3500,0),
+(1,'2023-03-06','FC/010',16,null,'Vente voiture',1,0,250,0),
+(1,'2023-03-06','FC/010',8,7,'Vente voiture',1,0,3750,0);
 -->
 
 insert into journaux(code,intitule)values
@@ -119,6 +119,22 @@ insert into S_emaiList(idsociete,email) values
 (3,'dimpex_ent@yahoo.mg'),
 (3,'dimpex_receps@gmail.mg');
 ('%s,%s');
+
+
+
+insert into pointage_piece(references_piece,signification) values ('AC','Avoir Client');
+insert into pointage_piece(references_piece,signification) values ('AF','Avoir Fournisseur');
+insert into pointage_piece(references_piece,signification) values ('BE','Bordereau d'' escompte');
+insert into pointage_piece(references_piece,signification) values ('CH','Chèque');
+insert into pointage_piece(references_piece,signification) values ('FC','Facture Client');
+insert into pointage_piece(references_piece,signification) values ('FF','Facture Fournisseur');
+insert into pointage_piece(references_piece,signification) values ('LC','Lettre de change');
+insert into pointage_piece(references_piece,signification) values ('PC','Pièce de caisse');
+insert into pointage_piece(references_piece,signification) values ('RL','Relevé');
+insert into pointage_piece(references_piece,signification) values ('SA','Salaire');
+insert into pointage_piece(references_piece,signification) values ('VI','Virement');
+
+
 
 --script d'insertion de la societe 
 --non etape 1:

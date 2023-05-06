@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <title>Document</title>
+</head>
+<body>
+    <center><h1>Ajouter vos contacts</h1></center>
+    <form action="" method="get">
+        <div class="container">
+            <div class="row-1" id="row-1">
+                <div class="label_container">
+                    <p><label for="item">Vos Numéros</label></p>
+                </div>
+                <div class="container-in " id="container-in" >
+                    <div class="col" id="col">
+                        <input class="input-content" placeholder="Numéro" type="text" name="" id="input-number">
+                    </div>
+                </div>
+                <p><input type="button" class="ajoutNUM" id="ajoutNUM" value="Ajouter"></p>
+            </div>
+            <script>
+                const button=document.getElementById('ajoutNUM');
+                const row1=document.getElementById('container-in');
+
+                let duplicated=row1.lastElementChild;
+                row1.addEventListener("click", (event) => {
+                    if (event.target !== row1) {
+                        duplicated = event.target;
+                    }
+                });
+
+                button.addEventListener('click', () => {
+                    if (duplicated) {
+                        const newItem = duplicated.cloneNode(true);
+                        row1.appendChild(newItem);
+                    }
+                });
+            </script>
+            <div class="row-2">
+                <div class="label_container">
+                    <p><label for="item">Vos Mail</label></p>
+                </div>
+                <div id="container-in2">
+                <div class="col">
+                    <input class="input-content" placeholder="Mail" type="text" name="" id="input-number">
+                </div>
+                </div>
+                <p><input type="button" class="ajoutNUM" id="ajoutMail" value="Ajouter"></p>
+                </div>
+            </div>
+        </div>
+        <script>
+            const button2=document.getElementById('ajoutMail');
+            const row2=document.getElementById('container-in2');
+
+            let duplicated2=row2.lastElementChild;
+            row2.addEventListener("click", (event) => {
+                if (event.target !== row2) {
+                    duplicated2 = event.target;
+                }
+            });
+
+            button2.addEventListener('click', () => {
+                if (duplicated2) {
+                    const newItem = duplicated2.cloneNode(true);
+                    row2.appendChild(newItem);
+                }
+            });
+        </script>
+        <div class="button-container">
+            <input type="submit" class="submiter" value="VALIDER">
+        </div>
+    </form>
+</body>
+</html>

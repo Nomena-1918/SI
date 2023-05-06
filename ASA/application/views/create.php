@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="champ">
                     <!--1 NOM -->
                     <label for="">Label</label>
-                    <input type="text" name="nom" placeholder="Mon entreprise" required>
+                        <input type="text" name="nom" placeholder="Mon entreprise" required>
                 </div>  
                 <div class="champ">
                     <!--2 Objet -->

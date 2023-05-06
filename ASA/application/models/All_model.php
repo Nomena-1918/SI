@@ -98,19 +98,19 @@
                 echo "Error lors du chargement";
             }
         }
-
+        // TABLE JOURNAUX
         public function upadate_journal($id, $new_code, $new_title){
             $request = "update journaux set code=%s, intitule=%s where id=%s"; 
             $request = sprintf($request,$this->db->escape($new_code),$this->db->escape($new_title),$this->db->escape($id));
             $status = $this->db->query($request);
             return $status;
         }
-
         public function insert_journal($code, $title){
-            // $request = "insert into journaux(code,intitule) values ('%s , %s')"; 
-            // $request = sprintf($request,$this->db->escape($code),$this->db->escape($title));
-            // $status = $this->db->query($request);
-            $id_last_ = $this->get_lastId_from_("journaux");
+            $request = "insert into journaux(code,intitule) values (%s,%s)"; 
+            $request = sprintf($request,$this->db->escape($code),$this->db->escape($title));
+            $status = $this->db->query($request);
+            $id_last_ = $this->get_lastId_from_("journaux");    
+            // $id_last_ = 9;    
             $my_id = array(
                 "id" => $id_last_,
                 "code" => $code,
@@ -118,6 +118,73 @@
             );
             // return $status;
             echo json_encode($my_id);
+        }
+        public function delete_journaux($id){
+            $request = "delete from journaux where id=%s";
+            $request = sprintf($request, $this->db->escape($id));
+            $status = $this->db->query($request);
+            return $status;
+        }
+        
+        // TABLE TIER
+        public function upadate_tier($id ,$code_collectif, $num, $intitule){
+            $request = "update compte_tier set idcompte_collectif=%s, numerocompte=%s, intitule=%s where id=%s"; 
+            $request = sprintf($request,$this->db->escape($code_collectif),$this->db->escape($num),$this->db->escape($intitule),$this->db->escape($id));
+            $status = $this->db->query($request);
+            return $status;   
+        }
+        public function insert_tier($code_collectif, $num, $title){
+            $request = "insert into compte_tier(idcompte_collectif,numerocompte,intitule) values (%s,%s,%s)"; 
+            $request = sprintf($request,$this->db->escape($code_collectif),$this->db->escape($num),$this->db->escape($intitule));
+            $status = $this->db->query($request);
+            $id_last_ = $this->get_lastId_from_("compte_tier");    
+            $my_id = array(
+                "id" => $id_last_,
+                "code_collectif" => $code_collectif,
+                "numerocompte" => $num,
+                "intitule" => $title
+            );
+            echo json_encode($my_id);
+        }
+        public function delete_tier($id){
+            $request = "delete from compte_tier where id=%s";
+            $request = sprintf($request, $this->db->escape($id));
+            $status = $this->db->query($request);
+            return $status;
+        }
+
+        public function insert_ecriture_jrn($id_code, $date_ecr, $n_piece, $id_co_general, $id_co_tier, $libelle, $id_devise, $debit, $credit, $typeval){            
+            $request = "insert into ecriture_journaux(id_code_journaux,dat_ecriture,numero_piece,idcompte_general,idcompte_tier,libelle,iddevise,debit,credit,typeval) values 
+            (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)";
+            $request = sprintf($request,
+            $this->db->escape($id_code),
+            $this->db->escape($date_ecr),
+            $this->db->escape($n_piece),
+            $this->db->escape($id_co_general),
+            $this->db->escape($id_co_tier),
+            $this->db->escape($libelle),
+            $this->db->escape($id_devise),
+            $this->db->escape($debit),
+            $this->db->escape($credit),
+            $this->db->escape($typeval));
+            $status = $this->db->query($request);
+            $id_last_ = $this->get_lastId_from_("ecriture_journaux");    
+            // $id_last_ = 9;    
+            $my_id = array(
+                "id" => $id_last_,
+                "code" => $code,
+                "intitule" => $title
+            );
+            // return $status;
+            echo json_encode($my_id);
+        }
+
+        // READ THE XLS FILES 
+        public function readFls($name){
+            $this->load->library('Spreadsheet');
+            $this->spreadsheet->load('your_excel_file.xls');
+            $data = $this->spreadsheet->getData();
+            return $data;
         }
 
         

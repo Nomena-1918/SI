@@ -112,6 +112,7 @@ create table journaux(
     code varchar(2),
     intitule varchar(255)
 );
+
 create table ecriture_journaux(
     Id serial primary key,
     id_code_journaux int,
@@ -124,7 +125,6 @@ create table ecriture_journaux(
     --------------------------------------------->
     libelle text,--35 caractères au maximum
     iddevise int default null,
-    devise float default null,
     debit float ,
     credit float,
     typeval int,
@@ -134,6 +134,11 @@ create table ecriture_journaux(
     foreign key (idcompte_tier) references compte_tier(Id)
 );
 
+create table pointage_piece(
+    Id serial primary key,
+    references_piece varchar(2),
+    signification varchar(255)
+);
 
 -- to verify the length of one number
 CREATE OR REPLACE FUNCTION limitNumber(my_number INTEGER, length_limit INTEGER)

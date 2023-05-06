@@ -26,7 +26,7 @@ $info_devise = $v_societe_deviseref;
                 <li><a href="<?php echo site_url("Redir?var=load_jrn"); ?>"><i class="fa fa-list-alt"></i> Code journal</a></li>
                 <li><a href="<?php echo site_url("Redir?var=load_compta"); ?>"><i class="fa fa-exchange"></i> Plan Comptable</a></li>
                 <li><a href="<?php echo site_url("Redir?var=load_tier"); ?>"><i class="fa fa-add"></i> Plan Compte des Tiers</a></li>
-                <li><a href="#"><i class="fa fa-sign-out"></i> Sign-out</a></li>         
+                <li><a href="<?php echo site_url("Redir?var=load_ecriture"); ?>"><i class="fa fa-sign-out"></i> Ecriture Journaux</a></li>         
             </ul>
         </div>
         <div class="menu-hamburger">

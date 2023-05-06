@@ -32,14 +32,43 @@ select * from v_societe_info_devise_ref;
 
 update plancomptable set idracinecompte=8 where idracinecompte=1;
 create or replace view v_plan_tier as 
-select cpt.id , pl.idracinecompte , pl.numerocompte cpt_num_gen , pl.intitule intitule_gen , cpt.numerocompte cpt_num_aux , cpt.intitule intitule_aux
+select  cpt.id , 
+        cpt.idcompte_collectif idplancompte , 
+        pl.idracinecompte , 
+        pl.numerocompte cpt_num_gen , 
+        pl.intitule intitule_gen , 
+        cpt.numerocompte cpt_num_aux , 
+        cpt.intitule intitule_aux
 from compte_tier cpt
 join plancomptable pl on pl.id=cpt.idcompte_collectif;
 
 create or replace view v_compte_tier_alldetail as 
-select pl.id , rc.numerocompte , rc.intitule , rc.code , pl.cpt_num_gen , pl.intitule_gen , pl.cpt_num_aux , pl.intitule_aux
+select  pl.id , 
+        pl.idplancompte,
+        rc.numerocompte , 
+        rc.intitule , 
+        rc.code , 
+        pl.cpt_num_gen , 
+        pl.intitule_gen , 
+        pl.cpt_num_aux , 
+        pl.intitule_aux
 from v_plan_tier pl 
 join racine_compte rc on rc.id=pl.idracinecompte;
 
 select * from v_plan_tier;
 select * from v_compte_tier_alldetail;
+
+-- View Plan comptable ne contenant que les plan des tiers 
+create or replace view v_plan_compta_tier as 
+select pl.id,
+pl.idracinecompte,
+rcp.numerocompte racine_num,
+rcp.intitule racine_intitule,
+pl.numerocompte plancompta_num,
+pl.intitule plancompta_intitule,
+rcp.code
+from plancomptable pl 
+join racine_compte rcp on pl.idracinecompte=rcp.id
+where rcp.numerocompte=40 or rcp.numerocompte=41;
+
+select * from v_plan_compta_tier;

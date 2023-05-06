@@ -1,0 +1,76 @@
+body{
+    font-family: sans-serif;
+}
+
+.contain-table{
+    position: relative;
+    width: 40%;
+    margin-left:32% ;
+    margin-top: 5%;
+}
+
+.container-table_gl{
+    position: relative;
+    margin-left:6% ;
+}
+
+table{
+    border-collapse: collapse;
+    border-radius: 1%;
+    border-bottom: none;
+  }
+  
+  th, td{
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+  .component{
+    font-size: small;
+    color: rgb(12, 13, 14);
+    border-right: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .titre{
+    font-size: small;
+    color: aliceblue;
+    background-color: rgba(36, 73, 62, 0.74);;
+    border: 0.5xp;
+    border-color: rgb(28, 31, 29);
+    border: 1px solid black;
+
+  }
+
+
+  .balance , .titrage th{
+    border: 1px solid black;
+  }
+
+  .titrage{
+    border-bottom: none;
+  }
+  .compabilite{
+    border: none;
+  }
+
+  .table-balance{
+    border: none;
+  }
+
+  .balance-container{
+    position: relative;
+    margin-left: 3%;
+  }
+
+  .title{
+    margin-top: 5%;
+  }
+
+  .debit{
+    border-right:1px solid ;
+  }
+
+  .compte{
+    border-bottom: none;
+  }

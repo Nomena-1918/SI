@@ -19,7 +19,17 @@
         }
         public function load_tier(){
             $data['plan_tier'] = $this->all_model->get_all_("v_compte_tier_alldetail");
+            $data['plan_comptable_tier'] = $this->all_model->get_all_("v_plan_compta_tier");
             $this->load->view("page_tiers",$data);
+        }
+        public function load_test(){
+            $this->load->view("testselect");
+        }
+        public function load_ecriture(){
+            $data['codage_piece'] = $this->all_model->get_all_("pointage_piece");
+            $data['tier_detail'] = $this->all_model->get_all_("v_compte_tier_alldetail");
+            $data['pcg'] = $this->all_model->get_all_(" plancomptable");
+            $this->load->view("ecriture",$data);
         }
 
 
@@ -56,6 +66,7 @@
 
             $this->load->view('templates/template',$data);
         }
+
 
 
     }
