@@ -16,7 +16,7 @@ liste des tables:person()
                 ecriture_journaux()
 
 create or replace view v_societe_dirigeant as
-select p.namelead,p.addres,p.phone,p.mail from societe s join person p on s.dirigeantid= p.id;
+select p.namelead,p.adress,p.phone,p.mail from societe s join person p on s.dirigeantid= p.id;
 
 create or replace view v_societe_info_and_devise as 
 select s.id,s.soc_name,s.soc_objet,s.capital,s.dirigeantid,s.soc_creationdate,s.soc_adresse,s.soc_emptotal,s.datedebut,d.id iddevise,d.nomdevise,d.taux,d.datecourant from societe s
